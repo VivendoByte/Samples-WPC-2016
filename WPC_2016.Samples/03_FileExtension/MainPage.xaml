@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="WPC_2016.Samples.Sample03.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FileExtSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="30" />
+        </Style>
+    </Page.Resources>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="8" Grid.Row="0">
+            <TextBlock x:Name="filename" />
+            <TextBlock x:Name="fullPath" />
+            <TextBlock x:Name="dateCreated" />
+            <TextBlock x:Name="size" />
+        </StackPanel>
+
+        <TextBox x:Name="content" Grid.Row="1" AcceptsReturn="True" Background="LightSalmon" FontSize="20" FontFamily="Courier" />
+
+        <Border HorizontalAlignment="Right" Width="200" Background="Cyan" Margin="8"
+                AllowDrop="True" DragOver="Border_DragOver" Drop="Border_Drop">
+            <TextBlock Text="drag'n'drop" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+
+    </Grid>
+</Page>

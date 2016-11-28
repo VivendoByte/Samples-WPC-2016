@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="WPC_2016.Samples.Sample09.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WPC_2016.Samples.Sample09"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:hlp="using:WPC_2016.Samples.Helpers"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <local:DragDropViewModel x:Key="dragdropVm" />
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" DataContext="{StaticResource dragdropVm}">
+        <Grid.Resources>
+            <local:MovedToBrushConverter x:Key="cnv" />
+            <DataTemplate x:Key="person">
+                <Grid Padding="16" Background="{Binding Moved,Converter={StaticResource cnv}}">
+                    <TextBlock FontSize="14" hlp:DragDropHelper.DragCommand="{Binding DragCommand,Source={StaticResource dragdropVm}}"
+                               hlp:DragDropHelper.DragCommandParameter="{Binding}">
+                        <Run Text="{Binding FirstName}" />
+                        <Run Text=" " />
+                        <Run Text="{Binding LastName}" />
+                        <Run Text=" (" />
+                        <Run Text="{Binding Age}" />
+                        <Run Text=" years old)" />
+                    </TextBlock>
+                </Grid>
+            </DataTemplate>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <ListBox CanDrag="True" ItemsSource="{Binding People}" ItemTemplate="{StaticResource person}" Grid.Column="0">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        <ListBox ItemsSource="{Binding Destination}" ItemTemplate="{StaticResource person}" Grid.Column="1"
+                     hlp:DragDropHelper.DropCommand="{Binding DropCommand,Source={StaticResource dragdropVm}}"
+                     hlp:DragDropHelper.DataPackageOperation="Link" />
+        <TextBlock Text="{Binding DragDropMessage}" Grid.Row="1" Grid.ColumnSpan="2" />
+    </Grid>
+</Page>

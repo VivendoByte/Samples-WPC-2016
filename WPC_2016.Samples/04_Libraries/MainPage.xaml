@@ -1,0 +1,82 @@
+﻿<Page
+    x:Class="WPC_2016.Samples.Sample04.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LibrariesSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style TargetType="ListBoxItem">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Text="Libreria Musica" FontSize="30" Grid.Row="0" />
+        <ListBox x:Name="musicLibraryFolders" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Path}" Grid.Column="0" />
+                        <Button Content="Rimuovi" Grid.Column="1" x:Name="RemoveMusicFolder" Click="RemoveMusicFolder_Click" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Grid.Row="1" Grid.Column="1" Content="Aggiungi" Margin="16" FontSize="24" x:Name="AddMusicFolder" Click="AddMusicFolder_Click" />
+
+        <TextBlock Text="Libreria Immagini" FontSize="30" Grid.Row="2" />
+        <ListBox x:Name="picturesLibraryFolders" Grid.Row="3">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Path}" Grid.Column="0" />
+                        <Button Content="Rimuovi" Grid.Column="1" x:Name="RemovePictureFolder" Click="RemovePictureFolder_Click" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Grid.Row="3" Grid.Column="1" Content="Aggiungi" Margin="16" FontSize="24" x:Name="AddPictureFolder" Click="AddPictureFolder_Click" />
+
+        <TextBlock Text="Libreria Video" FontSize="30" Grid.Row="4" />
+        <ListBox x:Name="videoLibraryFolders" Grid.Row="5">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Path}" Grid.Column="0" />
+                        <Button Content="Rimuovi" Grid.Column="1" x:Name="RemoveVideoFolder" Click="RemoveVideoFolder_Click" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Grid.Row="5" Grid.Column="1" Content="Aggiungi" Margin="16" FontSize="24" x:Name="AddVideoFolder" Click="AddVideoFolder_Click" />
+    </Grid>
+</Page>

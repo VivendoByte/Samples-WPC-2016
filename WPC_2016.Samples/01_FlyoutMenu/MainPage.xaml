@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="WPC_2016.Samples.Sample01.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ContextMenuSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        
+        
+        <ListView x:Name="sessionList" Grid.Row="1">
+            <ListView.Resources>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="BorderBrush" Value="Black" />
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="Margin" Value="2" />
+                </Style>
+            </ListView.Resources>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RightTapped="Grid_RightTapped">
+                        <FlyoutBase.AttachedFlyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem Text="Rimuovi" x:Name="DeleteItem" Click="DeleteItem_Click" Tag="{Binding}" />
+                                <MenuFlyoutItem Text="Duplica" x:Name="CloneItem" Click="CloneItem_Click" Tag="{Binding}"  />
+                                <MenuFlyoutItem Text="Mostra orario" x:Name="ShowTime" Click="ShowTime_Click" Tag="{Binding}" />
+                                <MenuFlyoutSubItem Text="Altro">
+                                    <MenuFlyoutItem Text="Ordina per" />
+                                    <MenuFlyoutItem Text="Speaker" Foreground="Blue" />
+                                    <MenuFlyoutItem Text="Data" Foreground="Blue" />
+                                </MenuFlyoutSubItem>
+                            </MenuFlyout>
+                        </FlyoutBase.AttachedFlyout>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Title}" FontSize="36" />
+                        </StackPanel>
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

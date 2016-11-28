@@ -1,0 +1,70 @@
+﻿<Page
+    x:Class="WPC_2016.Samples.Sample08.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TooltipSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <LinearGradientBrush x:Key="mainColor">
+            <GradientStop Color="Red" Offset="0.0" />
+            <GradientStop Color="Orange" Offset="1.0" />
+        </LinearGradientBrush>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Nuovo Appuntamento" Margin="4" Width="180">
+                <ToolTipService.ToolTip>
+                    <Grid Margin="4" Padding="32" Background="{StaticResource mainColor}">
+                        <TextBlock Foreground="WhiteSmoke" FontSize="22" FontWeight="Bold">
+                            <Run Text="aggiunge un nuovo" />
+                            <LineBreak />
+                            <Run Text="appuntamento" />
+                        </TextBlock>
+                    </Grid>
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button Content="Nuova Auto" Margin="4" Width="180">
+                <ToolTipService.ToolTip>
+                    <Grid Margin="4" Padding="32" Background="{StaticResource mainColor}">
+                        <Image Source="honda.jpg" />
+                        <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="Honda Civic"
+                                   Foreground="White" FontSize="26" />
+                    </Grid>
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button Content="Dettaglio Vendite" Margin="4" Width="180">
+                <ToolTipService.ToolTip>
+                    <Grid Margin="4" BorderBrush="Black" BorderThickness="2" Background="{StaticResource mainColor}" Width="120" Height="120" Loaded="Grid_Loaded">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid x:Name="bar" Background="Green" Margin="2" Grid.Column="0" Height="0.0" VerticalAlignment="Bottom">
+                            <Grid.Resources>
+                                <Storyboard x:Name="animation">
+                                    <DoubleAnimation Storyboard.TargetName="bar" Storyboard.TargetProperty="Height"
+                                                     From="0.0" To="100.0" Duration="00:00:01" EnableDependentAnimation="True" />
+                                </Storyboard>
+                            </Grid.Resources>
+                        </Grid>
+                        <StackPanel Grid.Column="1" Margin="4 0 0 4" VerticalAlignment="Bottom">
+                            <TextBlock Text="Lombardia : 43" />
+                            <TextBlock Text="Lazio : 76" />
+                            <TextBlock Text="Molise : 23" />
+                            <TextBlock Text="Veneto : 63" />
+                        </StackPanel>
+                    </Grid>
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button Content="Logout" Margin="4" Width="180" ToolTipService.ToolTip="logout dell'utente corrente" />
+        </StackPanel>
+    </Grid>
+</Page>
