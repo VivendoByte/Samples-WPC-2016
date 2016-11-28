@@ -94,6 +94,9 @@
   <ItemGroup>
     <Compile Include="09_DragDrop\DragDropViewModel.cs" />
     <Compile Include="10_VisualStateManager\MissingNetworkTrigger.cs" />
+    <Compile Include="12_KeyboardShortcut\DetailPage.xaml.cs">
+      <DependentUpon>DetailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\DragDropHelper.cs" />
     <Compile Include="01_FlyoutMenu\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -139,6 +142,9 @@
     </Compile>
     <Compile Include="10_VisualStateManager\MainViewModel.cs" />
     <Compile Include="11_DetectTabletMode\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="12_KeyboardShortcut\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -215,6 +221,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="11_DetectTabletMode\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="12_KeyboardShortcut\DetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="12_KeyboardShortcut\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

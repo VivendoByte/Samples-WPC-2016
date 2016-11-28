@@ -20,6 +20,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
+            <Button Content="Apri pratica" Margin="4" Width="180" ToolTipService.ToolTip="apri una pratica esistente..." />
             <Button Content="Nuovo Appuntamento" Margin="4" Width="180">
                 <ToolTipService.ToolTip>
                     <Grid Margin="4" Padding="32" Background="{StaticResource mainColor}">
@@ -64,7 +65,6 @@
                     </Grid>
                 </ToolTipService.ToolTip>
             </Button>
-            <Button Content="Logout" Margin="4" Width="180" ToolTipService.ToolTip="logout dell'utente corrente" />
         </StackPanel>
     </Grid>
 </Page>
