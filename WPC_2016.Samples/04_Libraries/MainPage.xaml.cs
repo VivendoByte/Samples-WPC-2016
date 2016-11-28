@@ -35,7 +35,7 @@ namespace WPC_2016.Samples.Sample04
             this.InitializeComponent();
         }
 
-        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
             loadFolders();

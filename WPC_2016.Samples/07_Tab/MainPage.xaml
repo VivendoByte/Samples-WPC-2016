@@ -18,7 +18,7 @@
             <Button Content="Button 2" Margin="4" Width="100" TabIndex="1"  />
             <Button Content="Button 3" Margin="4" Width="100" TabIndex="2"  />
             <Button Content="Button 4" Margin="4" Width="100" TabIndex="3"  />
-            <Button Content="Button 5" Margin="4" Width="100" TabIndex="4"  />
+            <Button Content="Button 5" Margin="4" Width="100" TabIndex="4" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1">

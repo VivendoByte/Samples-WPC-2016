@@ -20,7 +20,8 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
-            <Button Content="Apri pratica" Margin="4" Width="180" ToolTipService.ToolTip="apri una pratica esistente..." />
+            <Button Content="Apri pratica" Margin="4" Width="180"
+                    ToolTipService.ToolTip="apri una pratica esistente..." />
             <Button Content="Nuovo Appuntamento" Margin="4" Width="180">
                 <ToolTipService.ToolTip>
                     <Grid Margin="4" Padding="32" Background="{StaticResource mainColor}">

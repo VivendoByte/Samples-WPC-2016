@@ -72,5 +72,10 @@ namespace WPC_2016.Samples.Sample01
             await dlg.ShowAsync();
         }
         #endregion
+
+        private void TextBlock_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            var type = e.Pointer.PointerDeviceType == Windows.Devices.Input.PointerDeviceType.Touch;
+        }
     }
 }

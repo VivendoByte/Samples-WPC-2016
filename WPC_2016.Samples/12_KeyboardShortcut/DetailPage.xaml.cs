@@ -39,8 +39,17 @@ namespace WPC_2016.Samples.Sample12
             this.Title.Text = (e.Parameter as TechnicalSession).Title;
         }
 
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+
+            Window.Current.CoreWindow.CharacterReceived -= CoreWindow_CharacterReceived;
+        }
+
         private void CoreWindow_CharacterReceived(CoreWindow sender, CharacterReceivedEventArgs args)
         {
+            args.Handled = true;
+
             if (args.KeyCode == 8)
             {
                 if (this.Frame.CanGoBack)

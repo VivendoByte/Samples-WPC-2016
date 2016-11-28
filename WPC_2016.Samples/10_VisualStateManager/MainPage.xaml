@@ -16,7 +16,7 @@
           DataContext="{StaticResource viewmodel}">
         <VisualStateManager.VisualStateGroups>
             
-            <VisualStateGroup x:Name="ResolutionChange">
+            <VisualStateGroup x:Name="SizeChanged">
                 <VisualState x:Name="list">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0" />
@@ -64,6 +64,7 @@
                         <Setter Target="missingNetworkAlert.Visibility" Value="Visible" />
                     </VisualState.Setters>
                 </VisualState>
+                
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
