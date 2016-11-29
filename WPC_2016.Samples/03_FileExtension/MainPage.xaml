@@ -25,9 +25,9 @@
             <TextBlock x:Name="size" />
         </StackPanel>
 
-        <TextBox x:Name="content" Grid.Row="1" AcceptsReturn="True" Background="LightSalmon" FontSize="20" FontFamily="Courier" />
+        <TextBox x:Name="content" Grid.Row="1" AcceptsReturn="True" Background="Cornsilk" FontSize="20" FontFamily="Courier" ScrollViewer.VerticalScrollBarVisibility="Auto" />
 
-        <Border HorizontalAlignment="Right" Width="200" Background="Cyan" Margin="8"
+        <Border HorizontalAlignment="Right" Width="200" Background="Cornsilk" Margin="8"
                 AllowDrop="True" DragOver="Border_DragOver" Drop="Border_Drop">
             <TextBlock Text="drag'n'drop" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Border>
