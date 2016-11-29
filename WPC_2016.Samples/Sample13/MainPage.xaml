@@ -1,0 +1,47 @@
+﻿<Page
+    x:Class="WPC_2016.Samples.Sample13.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WPC_2016.Samples.Sample13"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <ScrollViewer>
+            <StackPanel Orientation="Horizontal" Margin="8">
+                <Button Content="Genera record" x:Name="GenerateButton" Click="GenerateButton_Click" Margin="4" />
+                <Button Content="Carica" x:Name="LoadButton" Click="LoadButton_Click" Margin="4" />
+            </StackPanel>
+        </ScrollViewer>
+
+        <ListView Grid.Row="1" x:Name="speakersList">
+            <ListView.Resources>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.Resources>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Surname}" Grid.Column="0" />
+                        <TextBlock Text="{Binding Name}" Grid.Column="1" />
+                        <DatePicker Date="{Binding BirthDate}" Grid.Column="2" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </Grid>
+</Page>

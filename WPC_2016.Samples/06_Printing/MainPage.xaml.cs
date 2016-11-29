@@ -29,11 +29,14 @@ namespace WPC_2016.Samples.Sample06
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+
+            // Chiedo all'OS se c'è possibilità di stampare
             this.InvokePrintingButton.IsEnabled = PrintManager.IsSupported();
 
             printMan = PrintManager.GetForCurrentView();
             printMan.PrintTaskRequested += PrintTaskRequested;
 
+            // Preparo l'oggetto PrintDocument
             printDoc = new PrintDocument();
             printDocSource = printDoc.DocumentSource;
             printDoc.Paginate += Paginate;
@@ -43,8 +46,11 @@ namespace WPC_2016.Samples.Sample06
 
         private async void InvokePrintingButton_Click(object sender, RoutedEventArgs e)
         {
+            // Preparo le pagine da stampare
             pages = new List<UIElement>();
+            // 1° pagina : Copertina
             pages.Add(new CoverPage());
+            // 2° pagina : mando in output la ListView
             pages.Add(this.sessionList);
 
             await PrintManager.ShowPrintUIAsync();
@@ -65,6 +71,7 @@ namespace WPC_2016.Samples.Sample06
             printDoc.SetPreviewPageCount(this.pages.Count, PreviewPageCountType.Final);
         }
 
+        // Richiede la preview di una specifica pagina
         private void GetPreviewPage(object sender, GetPreviewPageEventArgs e)
         {
             printDoc.SetPreviewPage(e.PageNumber, pages[e.PageNumber - 1]);

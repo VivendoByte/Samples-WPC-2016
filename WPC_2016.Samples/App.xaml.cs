@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using WPC_2016.Samples.Sample13;
 
 namespace WPC_2016.Samples
 {
@@ -33,6 +34,11 @@ namespace WPC_2016.Samples
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                db.Database.EnsureCreated();
+            }
         }
 
         protected override void OnFileActivated(FileActivatedEventArgs args)
@@ -104,7 +110,7 @@ namespace WPC_2016.Samples
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    RootFrame.Navigate(typeof(WPC_2016.Samples.Sample04.MainPage), e.Arguments);
+                    RootFrame.Navigate(typeof(WPC_2016.Samples.Sample13.MainPage), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
