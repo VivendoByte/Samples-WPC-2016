@@ -32,6 +32,7 @@ namespace WPC_2016.Samples.Sample13
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            this.path.Text = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
             loadRecords();
         }
 

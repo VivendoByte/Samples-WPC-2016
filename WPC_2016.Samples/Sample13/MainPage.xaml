@@ -17,6 +17,7 @@
             <StackPanel Orientation="Horizontal" Margin="8">
                 <Button Content="Genera record" x:Name="GenerateButton" Click="GenerateButton_Click" Margin="4" />
                 <Button Content="Carica" x:Name="LoadButton" Click="LoadButton_Click" Margin="4" />
+                <TextBox x:Name="path" IsReadOnly="True" Width="500" />
             </StackPanel>
         </ScrollViewer>
 
@@ -37,7 +38,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding Surname}" Grid.Column="0" />
                         <TextBlock Text="{Binding Name}" Grid.Column="1" />
-                        <DatePicker Date="{Binding BirthDate}" Grid.Column="2" />
+                        <DatePicker Date="{Binding BindingDate}" Grid.Column="2" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
