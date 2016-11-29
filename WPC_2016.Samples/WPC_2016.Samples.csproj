@@ -152,10 +152,10 @@
     <Compile Include="12_KeyboardShortcut\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sample13\MainPage.xaml.cs">
+    <Compile Include="13_EntityFrameworkCore\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sample13\Database.cs" />
+    <Compile Include="13_EntityFrameworkCore\Database.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -241,7 +241,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sample13\MainPage.xaml">
+    <Page Include="13_EntityFrameworkCore\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

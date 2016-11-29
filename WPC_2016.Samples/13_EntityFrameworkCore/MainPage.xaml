@@ -17,6 +17,7 @@
             <StackPanel Orientation="Horizontal" Margin="8">
                 <Button Content="Genera record" x:Name="GenerateButton" Click="GenerateButton_Click" Margin="4" />
                 <Button Content="Carica" x:Name="LoadButton" Click="LoadButton_Click" Margin="4" />
+                <Button Content="Salva" x:Name="SaveButton" Click="SaveButton_Click" Margin="4" />
                 <TextBox x:Name="path" IsReadOnly="True" Width="500" />
             </StackPanel>
         </ScrollViewer>
@@ -36,9 +37,9 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Surname}" Grid.Column="0" />
-                        <TextBlock Text="{Binding Name}" Grid.Column="1" />
-                        <DatePicker Date="{Binding BindingDate}" Grid.Column="2" />
+                        <TextBox Text="{Binding Surname,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" />
+                        <TextBox Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" />
+                        <DatePicker Date="{Binding BindingDate,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

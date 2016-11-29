@@ -22,7 +22,7 @@ namespace WPC_2016.Samples.Sample13
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public List<Speaker> Speakers { get; set; }
+        private DatabaseContext ctx;
 
         public MainPage()
         {
@@ -38,14 +38,11 @@ namespace WPC_2016.Samples.Sample13
 
         private async void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
-            using (DatabaseContext ctx = new DatabaseContext())
-            {
-                ctx.Speakers.Add(new Speaker() { Name = "Gabriele", Surname = "Gaggi", Province = "Sondrio", Technologies = "ASP.NET", BirthDate = new DateTime(1972, 07, 31) });
-                ctx.Speakers.Add(new Speaker() { Name = "Liborio Igor", Surname = "Damiani", Province = "Lodi", Technologies = "UWP", BirthDate = new DateTime(1976, 02, 28) });
-                ctx.Speakers.Add(new Speaker() { Name = "Del Sole", Surname = "Alessandro", Province = "Roma", Technologies = "WPF", BirthDate = new DateTime(1977, 05, 10) });
+            ctx.Speakers.Add(new Speaker() { Name = "Gabriele", Surname = "Gaggi", Province = "Sondrio", Technologies = "ASP.NET", BirthDate = new DateTime(1972, 07, 31) });
+            ctx.Speakers.Add(new Speaker() { Name = "Liborio Igor", Surname = "Damiani", Province = "Lodi", Technologies = "UWP", BirthDate = new DateTime(1976, 02, 28) });
+            ctx.Speakers.Add(new Speaker() { Name = "Del Sole", Surname = "Alessandro", Province = "Roma", Technologies = "WPF", BirthDate = new DateTime(1977, 05, 10) });
 
-                await ctx.SaveChangesAsync();
-            }
+            await ctx.SaveChangesAsync();
         }
 
         private void LoadButton_Click(object sender, RoutedEventArgs e)
@@ -57,13 +54,16 @@ namespace WPC_2016.Samples.Sample13
         {
             try
             {
-                using (DatabaseContext ctx = new DatabaseContext())
-                {
-                    this.Speakers = ctx.Speakers.ToList();
-                    this.speakersList.ItemsSource = this.Speakers;
-                }
+                ctx = new DatabaseContext();
+                this.speakersList.ItemsSource = ctx.Speakers;
             }
             catch (Exception) { }
+        }
+
+        private async void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            var modified = ctx.ChangeTracker.Entries<Speaker>();
+            int records = await ctx.SaveChangesAsync();
         }
     }
 }
