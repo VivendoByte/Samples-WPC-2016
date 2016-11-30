@@ -46,6 +46,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Content="Cancella i miei preferiti!" Click="ClearFavorites_Click" />
+        <Button Content="Cancella i miei preferiti!" Click="ClearFavorites_Click" Margin="8" />
     </Grid>
 </Page>
