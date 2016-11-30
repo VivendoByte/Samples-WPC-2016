@@ -48,10 +48,10 @@ namespace WPC_2016.Samples.Sample12
 
         private void CoreWindow_CharacterReceived(CoreWindow sender, CharacterReceivedEventArgs args)
         {
-            args.Handled = true;
-
             if (args.KeyCode == 8)
             {
+                args.Handled = true;
+
                 if (this.Frame.CanGoBack)
                 {
                     this.Frame.GoBack();

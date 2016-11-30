@@ -31,12 +31,12 @@ namespace WPC_2016.Samples.Sample11
 
             if (ui == Windows.UI.ViewManagement.UserInteractionMode.Touch)
             {
-                this.currentUI.Text = "Tablet Mode!";
+                this.currentUI.Text = "Modalità tablet!";
                 VisualStateManager.GoToState(this, "tablet", true);
             }
             else
             {
-                this.currentUI.Text = string.Empty;
+                this.currentUI.Text = "Modalità standard";
                 VisualStateManager.GoToState(this, "standard", true);
             }
         }
