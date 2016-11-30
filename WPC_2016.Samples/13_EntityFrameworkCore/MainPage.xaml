@@ -16,6 +16,7 @@
         <ScrollViewer>
             <StackPanel Orientation="Horizontal" Margin="8">
                 <Button Content="Genera record" x:Name="GenerateButton" Click="GenerateButton_Click" Margin="4" />
+                <Button Content="Aggiungi" x:Name="AddButton" Click="AddButton_Click" Margin="4" />
                 <Button Content="Carica" x:Name="LoadButton" Click="LoadButton_Click" Margin="4" />
                 <Button Content="Salva" x:Name="SaveButton" Click="SaveButton_Click" Margin="4" />
                 <TextBox x:Name="path" IsReadOnly="True" Width="500" />

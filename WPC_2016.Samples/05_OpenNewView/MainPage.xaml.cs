@@ -65,9 +65,9 @@ namespace WPC_2016.Samples.Sample05
 
             await ApplicationViewSwitcher.TryShowAsStandaloneAsync(
               newAppView.Id,
-              ViewSizePreference.UseHalf,
+              ViewSizePreference.UseMinimum,
               mainViewId,
-              ViewSizePreference.UseHalf);
+              ViewSizePreference.UseMinimum);
         }
     }
 }

@@ -110,7 +110,7 @@ namespace WPC_2016.Samples
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    RootFrame.Navigate(typeof(WPC_2016.Samples.Sample02.MainPage), e.Arguments);
+                    RootFrame.Navigate(typeof(WPC_2016.Samples.Sample13.MainPage), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();

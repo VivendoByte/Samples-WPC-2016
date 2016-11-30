@@ -65,5 +65,16 @@ namespace WPC_2016.Samples.Sample13
             var modified = ctx.ChangeTracker.Entries<Speaker>();
             int records = await ctx.SaveChangesAsync();
         }
+
+        private async void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            Speaker s = new Speaker();
+            s.Id = 0;
+            s.Name = "nuovo";
+            s.Surname = "nuovo";
+            s.BirthDate = DateTime.Now;
+            await ctx.Speakers.AddAsync(s);
+            this.speakersList.ItemsSource = ctx.Speakers;
+        }
     }
 }
