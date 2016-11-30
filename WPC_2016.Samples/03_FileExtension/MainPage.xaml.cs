@@ -72,6 +72,8 @@ namespace WPC_2016.Samples.Sample03
 
         private async void showFileDetails(StorageFile file)
         {
+            if (!file.ContentType.EndsWith("excel")) return;
+
             this.filename.Text = file.Name;
             this.fullPath.Text = file.Path;
             this.dateCreated.Text = file.DateCreated.ToString();

@@ -53,7 +53,11 @@
                             <Grid.Resources>
                                 <Storyboard x:Name="animation">
                                     <DoubleAnimation Storyboard.TargetName="bar" Storyboard.TargetProperty="Height"
-                                                     From="0.0" To="100.0" Duration="00:00:01" EnableDependentAnimation="True" />
+                                                     From="0.0" To="100.0" Duration="00:00:01" EnableDependentAnimation="True">
+                                        <DoubleAnimation.EasingFunction>
+                                            <BounceEase />
+                                        </DoubleAnimation.EasingFunction>
+                                    </DoubleAnimation>
                                 </Storyboard>
                             </Grid.Resources>
                         </Grid>
